@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:music_app_assign/widgets/customBottomNav.dart';
 import 'package:music_app_assign/widgets/customListView.dart';
-import 'package:music_app_assign/widgets/scrollView.dart';
 import 'package:music_app_assign/widgets/scrollviewlogic.dart';
 import 'package:music_app_assign/widgets/songsUi.dart';
-import 'constants/colors.dart';
+import '../constants/colors.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -12,7 +10,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNav(),
       backgroundColor: ConstColors.backgroundColor,
       body: SafeArea(
         child: Padding(
@@ -26,7 +23,7 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(63, 59, 84, 1.0),
+                          color: const Color.fromRGBO(63, 59, 84, 1.0),
                           borderRadius: BorderRadius.circular(12)),
                       height: 60,
                       width: 60,
