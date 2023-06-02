@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:music_app_assign/widgets/customListView.dart';
+import 'package:music_app_assign/widgets/scrollView.dart';
+import 'package:music_app_assign/widgets/scrollviewlogic.dart';
+import 'package:music_app_assign/widgets/songsUi.dart';
 import 'constants/colors.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -68,11 +71,49 @@ class MyHomePage extends StatelessWidget {
               ),
               SizedBox(
                 height: 200,
-                child: ListView.builder(
+                child: ListView(
+                  children: [
+                    CustomListView(
+                      image: 'assets/images/darkside_Copy.png',
+                      colors: [
+                        Color.fromARGB(255, 127, 40, 141),
+                        const Color.fromARGB(255, 43, 39, 134),
+                      ],
+                      text1: 'The Dark Side',
+                      onPressedFun: () {},
+                    ),
+                    CustomListView(
+                      image: 'assets/images/thought_contagion.png',
+                      colors: [
+                        Color.fromARGB(255, 126, 41, 143),
+                        Color.fromARGB(255, 91, 19, 117),
+                      ],
+                      text1: 'Thought contagion',
+                      onPressedFun: () {},
+                    ),
+                    CustomListView(
+                      image: 'assets/images/somethin_human.png',
+                      colors: [
+                        Color.fromARGB(229, 234, 117, 75),
+                        Color.fromARGB(255, 163, 42, 62),
+                      ],
+                      text1: 'Sometin Human',
+                      onPressedFun: () {},
+                    ),
+                  ],
                   scrollDirection: Axis.horizontal,
-                  itemCount: 2,
-                  itemBuilder: (context, index) => Container(),
                 ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              SizedBox(height: 40, child: ScrollPro()),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.375,
+                child: SongUi(),
               )
             ],
           ),

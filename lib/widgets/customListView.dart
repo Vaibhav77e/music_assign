@@ -6,14 +6,15 @@ class CustomListView extends StatelessWidget {
   String image;
   List<Color> colors;
   String text1;
-  String text2;
+  void Function()? onPressedFun;
 
-  CustomListView(
-      {required this.image,
-      required,
-      required this.colors,
-      required this.text1,
-      required this.text2});
+  CustomListView({
+    required this.image,
+    required,
+    required this.colors,
+    required this.text1,
+    required this.onPressedFun,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomListView extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Image.asset(
-                'assets/images/darkside_Copy.png',
+                image,
                 fit: BoxFit.cover,
               ),
             ),
@@ -39,10 +40,7 @@ class CustomListView extends StatelessWidget {
               height: 70,
               width: 235,
               decoration: BoxDecoration(
-                  gradient: const LinearGradient(colors: [
-                    Color.fromARGB(255, 140, 43, 172),
-                    Color.fromARGB(255, 43, 39, 134),
-                  ]),
+                  gradient: LinearGradient(colors: colors),
                   borderRadius: BorderRadius.circular(22)),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -54,18 +52,18 @@ class CustomListView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
-                          'The Dark Side',
-                          style: TextStyle(
+                          text1,
+                          style: const TextStyle(
                               color: ConstColors.itColor, fontSize: 18),
                         ),
-                        Row(
+                        const Row(
                           children: [
                             Icon(
                               Icons.music_note,
                               size: 15,
                             ),
                             Text(
-                              'Music - Simulation Theory',
+                              'Muse - Simulation Theory',
                               style: TextStyle(
                                   color: ConstColors.itColor, fontSize: 12),
                             ),
@@ -74,13 +72,18 @@ class CustomListView extends StatelessWidget {
                       ],
                     ),
                     CircleAvatar(
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.play_arrow,
-                            size: 24,
-                          )),
-                    ),
+                        child: IconButton(
+                      onPressed: onPressedFun,
+                      icon: onPressedFun != null
+                          ? const Icon(
+                              Icons.play_arrow,
+                              size: 24,
+                            )
+                          : const Icon(
+                              Icons.pause,
+                              size: 24,
+                            ),
+                    )),
                   ],
                 ),
               ),

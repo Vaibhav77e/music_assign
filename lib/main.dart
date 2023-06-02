@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'myhomepage.dart';
 
+// import 'package:music_app_assign/providersFolder/scrollviewlogic.dart';
+// import 'package:provider/provider.dart';
 void main() {
   runApp(const MyApp());
 }
