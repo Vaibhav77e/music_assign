@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_assign/widgets/customBottomNav.dart';
 import 'package:music_app_assign/widgets/customListView.dart';
 import 'package:music_app_assign/widgets/scrollView.dart';
 import 'package:music_app_assign/widgets/scrollviewlogic.dart';
@@ -11,111 +12,114 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomNav(),
       backgroundColor: ConstColors.backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 15.0, left: 15, right: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(63, 59, 84, 1.0),
-                        borderRadius: BorderRadius.circular(12)),
-                    height: 60,
-                    width: 60,
-                    child: const Icon(
-                      Icons.menu,
-                      color: Colors.white54,
-                    ),
-                  ),
-                  Container(
-                    height: 60,
-                    width: 280,
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(63, 59, 84, 1),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: TextField(
-                      decoration: InputDecoration(
-                          prefixIcon: IconButton(
-                            icon: const Icon(
-                              Icons.search,
-                              color: Colors.white54,
-                              size: 28,
-                            ),
-                            onPressed: () {},
-                          ),
-                          hintText: "Search",
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12))),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
-              ),
-              const Text(
-                'Trending right now',
-                style: TextStyle(
-                    //  fontFamily: 'Roboto',
-                    color: ConstColors.itColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 28),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              SizedBox(
-                height: 200,
-                child: ListView(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomListView(
-                      image: 'assets/images/darkside_Copy.png',
-                      colors: [
-                        Color.fromARGB(255, 127, 40, 141),
-                        const Color.fromARGB(255, 43, 39, 134),
-                      ],
-                      text1: 'The Dark Side',
-                      onPressedFun: () {},
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(63, 59, 84, 1.0),
+                          borderRadius: BorderRadius.circular(12)),
+                      height: 60,
+                      width: 60,
+                      child: const Icon(
+                        Icons.menu,
+                        color: Colors.white54,
+                      ),
                     ),
-                    CustomListView(
-                      image: 'assets/images/thought_contagion.png',
-                      colors: [
-                        Color.fromARGB(255, 126, 41, 143),
-                        Color.fromARGB(255, 91, 19, 117),
-                      ],
-                      text1: 'Thought contagion',
-                      onPressedFun: () {},
-                    ),
-                    CustomListView(
-                      image: 'assets/images/somethin_human.png',
-                      colors: [
-                        Color.fromARGB(229, 234, 117, 75),
-                        Color.fromARGB(255, 163, 42, 62),
-                      ],
-                      text1: 'Sometin Human',
-                      onPressedFun: () {},
-                    ),
+                    Container(
+                      height: 60,
+                      width: 280,
+                      decoration: BoxDecoration(
+                          color: Color.fromRGBO(63, 59, 84, 1),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            prefixIcon: IconButton(
+                              icon: const Icon(
+                                Icons.search,
+                                color: Colors.white54,
+                                size: 28,
+                              ),
+                              onPressed: () {},
+                            ),
+                            hintText: "Search",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                      ),
+                    )
                   ],
-                  scrollDirection: Axis.horizontal,
                 ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              SizedBox(height: 40, child: ScrollPro()),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.375,
-                child: SongUi(),
-              )
-            ],
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.04,
+                ),
+                const Text(
+                  'Trending right now',
+                  style: TextStyle(
+                      //  fontFamily: 'Roboto',
+                      color: ConstColors.itColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 28),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                SizedBox(
+                  height: 200,
+                  child: ListView(
+                    children: [
+                      CustomListView(
+                        image: 'assets/images/darkside_Copy.png',
+                        colors: [
+                          Color.fromARGB(255, 127, 40, 141),
+                          const Color.fromARGB(255, 43, 39, 134),
+                        ],
+                        text1: 'The Dark Side',
+                        onPressedFun: () {},
+                      ),
+                      CustomListView(
+                        image: 'assets/images/thought_contagion.png',
+                        colors: [
+                          Color.fromARGB(255, 126, 41, 143),
+                          Color.fromARGB(255, 91, 19, 117),
+                        ],
+                        text1: 'Thought contagion',
+                        onPressedFun: () {},
+                      ),
+                      CustomListView(
+                        image: 'assets/images/somethin_human.png',
+                        colors: [
+                          Color.fromARGB(229, 234, 117, 75),
+                          Color.fromARGB(255, 163, 42, 62),
+                        ],
+                        text1: 'Sometin Human',
+                        onPressedFun: () {},
+                      ),
+                    ],
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                SizedBox(height: 40, child: ScrollPro()),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.375,
+                  child: SongUi(),
+                )
+              ],
+            ),
           ),
         ),
       ),

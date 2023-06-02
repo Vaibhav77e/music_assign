@@ -65,7 +65,11 @@ flutter:
     - assets/images/darkside_Copy.png
     - assets/images/thought_contagion.png
     - assets/images/somethin_human.png
-
+    - assets/images/forget_me.png
+    - assets/images/im_good.png
+    - assets/images/under_infl.png
+    - assets/icons/
+  
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
