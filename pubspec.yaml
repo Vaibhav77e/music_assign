@@ -71,6 +71,12 @@ flutter:
     - assets/images/under_infl.png
     - assets/icons/
     - assets/gIcons/
+    - assets/song1.mp3
+    - assets/song2.mp3
+    - assets/song3.mp3
+
+
+
 
   
 

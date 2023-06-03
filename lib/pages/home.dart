@@ -11,7 +11,7 @@ import '../providersFolder/resuableBottomNav.dart';
 class Home extends StatelessWidget {
   Home({super.key});
 
-  List<Widget> pageList = const [
+  List<Widget> pageList = [
     MyHomePage(),
     Search(),
     Music(),

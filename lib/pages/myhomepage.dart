@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:music_app_assign/providersFolder/musicPro.dart';
 import 'package:music_app_assign/widgets/customListView.dart';
 import 'package:music_app_assign/widgets/scrollviewlogic.dart';
 import 'package:music_app_assign/widgets/songsUi.dart';
+import 'package:provider/provider.dart';
 import '../constants/colors.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -71,37 +73,46 @@ class MyHomePage extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 200,
-                  child: ListView(
-                    children: [
-                      CustomListView(
-                        image: 'assets/images/darkside_Copy.png',
-                        colors: [
-                          Color.fromARGB(255, 127, 40, 141),
-                          const Color.fromARGB(255, 43, 39, 134),
-                        ],
-                        text1: 'The Dark Side',
-                        onPressedFun: () {},
-                      ),
-                      CustomListView(
-                        image: 'assets/images/thought_contagion.png',
-                        colors: [
-                          Color.fromARGB(255, 126, 41, 143),
-                          Color.fromARGB(255, 91, 19, 117),
-                        ],
-                        text1: 'Thought contagion',
-                        onPressedFun: () {},
-                      ),
-                      CustomListView(
-                        image: 'assets/images/somethin_human.png',
-                        colors: [
-                          Color.fromARGB(229, 234, 117, 75),
-                          Color.fromARGB(255, 163, 42, 62),
-                        ],
-                        text1: 'Sometin Human',
-                        onPressedFun: () {},
-                      ),
-                    ],
-                    scrollDirection: Axis.horizontal,
+                  child: Consumer<MusicPro>(
+                    builder: (context, value, child) => ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        CustomListView(
+                          image: 'assets/images/darkside_Copy.png',
+                          colors: const [
+                            Color.fromARGB(255, 127, 40, 141),
+                            Color.fromARGB(255, 43, 39, 134),
+                          ],
+                          text1: 'The Dark Side',
+                          onPressedFun: () {
+                            value.play();
+                          },
+                        ),
+                        CustomListView(
+                          image: 'assets/images/thought_contagion.png',
+                          colors: const [
+                            // ignore: prefer_const_constructors
+                            Color.fromARGB(255, 126, 41, 143),
+                            Color.fromARGB(255, 91, 19, 117),
+                          ],
+                          text1: 'Thought contagion',
+                          onPressedFun: () {
+                            value.play2();
+                          },
+                        ),
+                        CustomListView(
+                          image: 'assets/images/somethin_human.png',
+                          colors: const [
+                            Color.fromARGB(229, 234, 117, 75),
+                            Color.fromARGB(255, 163, 42, 62),
+                          ],
+                          text1: 'Sometin Human',
+                          onPressedFun: () {
+                            value.play2();
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
